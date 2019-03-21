@@ -1,0 +1,20 @@
+<% include partials/header%>
+<%for(var i=0;i<allhotels.length;i++)
+{%>
+    <div class="row">
+            <div class="col-sm-6">
+    <div class="card" style="width: 18rem;">
+            <img id="im1" class="card-img-top" src="<%=allhotels[i].image%>" alt="hotel image">
+            <div class="card-body">
+              <h5 class="card-title"><%=allhotels[i].name%></h5>
+              <p class="card-text"><%=allhotels[i].price%></p>
+              
+            </div>
+          </div>
+          </div>
+          </div>
+<%}%>
+
+<a href="/api/addhotel">Add new hotel</a>
+
+<% include partials/footer%>
