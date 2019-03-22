@@ -6,6 +6,7 @@ const { Schema }=mongoose;
 const userSchema = new Schema({
    name:String,
    image:String,
+   city:String,
    price:Number
 
 });

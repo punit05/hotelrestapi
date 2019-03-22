@@ -46,6 +46,12 @@ app.post("/api/addhotel",function(req,res)
           message: 'image is required'
         });
       }
+      else if(!req.body.city) {
+        return res.status(400).send({
+          success: 'false',
+          message: 'city is required'
+        });
+      }
       else if(!req.body.price) {
           return res.status(400).send({
             success: 'false',
@@ -54,15 +60,17 @@ app.post("/api/addhotel",function(req,res)
         }
         name=req.body.name;
         image=req.body.image;
+        city=req.body.city;
         price=req.body.price;
-        var newhotel={name:name,image:image,price:price};
+    
+        var newhotel={name:name,image:image,city:city,price:price};
         Hotel.create(newhotel,function(err,newhotel)
         {
             if(err)console.log(err);
             else{
                 console.log(newhotel);
-                return res.json(newhotel);
-                
+                // return res.json(newhotel);
+               return res.redirect("/api"); 
             }
         })
   
